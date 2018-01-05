@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
-import { Hero } from '../../../core/models/hero.model';
 import { Group } from '../../../core/models/group.model';
+import { Hero } from '../../../core/models/hero.model';
 
 @Component({
   selector: 'app-hero-chip-list',
@@ -17,8 +17,6 @@ export class HeroChipListComponent implements OnChanges {
   @Output() heroChange = new EventEmitter<Array<Hero>>();
 
   selectedHeroes: Hero[] = [];
-
-  constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.heroes && this.group) {

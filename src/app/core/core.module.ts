@@ -1,13 +1,13 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-import { HeroesService } from "./services/heroes.service";
-import { CharactersService } from "./services/characters.service";
 import { MarvelInterceptor } from "./interceptors/marvel.interceptor";
+import { CharactersService } from "./services/characters.service";
+import { GroupsService } from './services/groups.service';
+import { HeroesService } from "./services/heroes.service";
 import { MarvelService } from "./services/marvel.service";
 import { PowersService } from "./services/powers.service";
-import { GroupsService } from './services/groups.service';
 
 @NgModule({
   imports: [

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
 
-import { BaseService } from './base.service';
 import { Hero } from '../models/hero.model';
-import { Power } from '../models/power.model';
+import { BaseService } from './base.service';
 
 @Injectable()
 export class HeroesService extends BaseService {

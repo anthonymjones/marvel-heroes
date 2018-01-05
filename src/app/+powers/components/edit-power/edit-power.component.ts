@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Power } from '../../../core/models/power.model';
 import { debounceTime } from 'rxjs/operators';
+
+import { Power } from '../../../core/models/power.model';
 
 @Component({
   selector: 'app-edit-power',

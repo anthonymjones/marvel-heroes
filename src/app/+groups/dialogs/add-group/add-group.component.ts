@@ -1,11 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { MatDialogRef, MatSnackBar } from '@angular/material';
-import { HeroesService } from '../../../core/services/heroes.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Hero } from '../../../core/models/hero.model';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
+
 import { Observable } from 'rxjs/Observable';
-import { Group } from '../../../core/models/group.model';
+
+import { Hero } from '../../../core/models/hero.model';
 import { GroupsService } from '../../../core/services/groups.service';
+import { HeroesService } from '../../../core/services/heroes.service';
 
 @Component({
   templateUrl: './add-group.component.html',

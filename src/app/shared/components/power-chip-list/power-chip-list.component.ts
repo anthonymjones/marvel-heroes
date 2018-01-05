@@ -18,8 +18,6 @@ export class PowerChipListComponent implements OnChanges {
 
   selectedPowers: Power[] = [];
 
-  constructor() { }
-
   ngOnChanges(changes: SimpleChanges) {
     if (this.hero && this.powers) {
       this.selectedPowers = this.powers.filter(power => this.hero.powers.indexOf(power.id) > -1);

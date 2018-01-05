@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { Hero } from '../../../core/models/hero.model';
 
 @Component({
@@ -10,7 +11,4 @@ export class HeroActionsComponent {
   @Input() hero: Hero;
   @Output() deleteChange = new EventEmitter<Hero>();
   @Output() editChange = new EventEmitter<Hero>();
-
-  constructor() { }
-
 }

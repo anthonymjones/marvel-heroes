@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Group } from '../../../core/models/group.model';
 
 @Component({

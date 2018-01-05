@@ -1,8 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { MatDialogRef, MatSnackBar } from '@angular/material';
-import { PowersService } from '../../../core/services/powers.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
+
 import { Power } from "../../../core/models/power.model";
+import { PowersService } from '../../../core/services/powers.service';
 
 @Component({
   templateUrl: './add-power.component.html',

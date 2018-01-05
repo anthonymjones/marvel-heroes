@@ -10,10 +10,10 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
 $marvel-directory-app-primary: mat-palette($mat-red, 600);
-$marvel-directory-app-accent:  mat-palette($mat-grey, A200, A100, A400);
+$marvel-directory-app-accent: mat-palette($mat-grey, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$marvel-directory-app-warn:    mat-palette($mat-deep-orange);
+$marvel-directory-app-warn: mat-palette($mat-deep-orange);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $marvel-directory-app-theme: mat-light-theme($marvel-directory-app-primary, $marvel-directory-app-accent, $marvel-directory-app-warn);

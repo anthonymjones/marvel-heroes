@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
-import { MarvelService } from './marvel.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
-import { Character } from '../models/character.model';
 import { map } from 'rxjs/operators';
+
+import { Character } from '../models/character.model';
 import { MarvelResponse } from '../models/marvel-response.model';
+import { MarvelService } from './marvel.service';
 
 @Injectable()
 export class CharactersService extends MarvelService {

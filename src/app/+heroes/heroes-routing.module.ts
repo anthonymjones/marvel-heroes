@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { IndexComponent } from './containers/index/index.component';
-import { HeroComponent } from './containers/hero/hero.component';
 import { EditComponent } from './containers/edit/edit.component';
+import { HeroComponent } from './containers/hero/hero.component';
+import { IndexComponent } from './containers/index/index.component';
 
 const routes: Routes = [
   {

@@ -1,14 +1,14 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatDialogRef, MatSnackBar } from '@angular/material';
+
 import { Observable } from 'rxjs/Observable';
 import { debounceTime } from 'rxjs/operators';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Character } from '../../../core/models/character.model';
-import { CharactersService } from '../../../core/services/characters.service';
-import { Hero } from "../../../core/models/hero.model";
-import { HeroesService } from '../../../core/services/heroes.service';
 import { Power } from '../../../core/models/power.model';
+import { CharactersService } from '../../../core/services/characters.service';
+import { HeroesService } from '../../../core/services/heroes.service';
 import { PowersService } from '../../../core/services/powers.service';
 
 @Component({

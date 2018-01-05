@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from './base.service';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
+
 import { Power } from '../models/power.model';
+import { BaseService } from './base.service';
 
 @Injectable()
 export class PowersService extends BaseService {

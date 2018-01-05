@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
+
 import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 

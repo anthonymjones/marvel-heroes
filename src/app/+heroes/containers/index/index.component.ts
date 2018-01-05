@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+
 import { Observable } from 'rxjs/Observable';
 
-import { HeroesService } from '../../../core/services/heroes.service';
 import { Hero } from '../../../core/models/hero.model';
-import { MatDialog } from '@angular/material';
+import { HeroesService } from '../../../core/services/heroes.service';
 import { AddHeroComponent } from '../../dialogs/add-hero/add-hero.component';
 
 @Component({

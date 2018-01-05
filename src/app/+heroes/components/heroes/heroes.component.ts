@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { Hero } from '../../../core/models/hero.model';
 
 @Component({
@@ -6,16 +7,11 @@ import { Hero } from '../../../core/models/hero.model';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent {
   @Input() heroes: Hero[];
 
   @Output() deleteChange = new EventEmitter<Hero>();
   @Output() editChange = new EventEmitter<Hero>();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   getHeroImage(hero: Hero): string {
     const thumb = hero.character.thumbnail;

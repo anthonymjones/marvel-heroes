@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
 import { MatSidenav } from '@angular/material';
 
 @Component({
@@ -6,12 +7,6 @@ import { MatSidenav } from '@angular/material';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
   @ViewChild('sidenav') sideNav: MatSidenav;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

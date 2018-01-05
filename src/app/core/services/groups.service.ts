@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
 
-import { BaseService } from './base.service';
 import { Group } from '../models/group.model';
+import { BaseService } from './base.service';
 
 @Injectable()
 export class GroupsService extends BaseService {
