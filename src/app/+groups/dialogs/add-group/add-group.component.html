@@ -1,0 +1,18 @@
+<app-dialog-header (close)="close()">
+  <h2>Add Super Hero Group</h2>
+</app-dialog-header>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Group Name" formControlName="name">
+    </mat-form-field>
+  </form>
+  <h4>Super Heroes</h4>
+  <app-hero-chip-list
+    [heroes]="heroes | async"
+    (heroChange)="onHeroChange($event)">
+  </app-hero-chip-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onAdd()">Add</button>
+</mat-dialog-actions>

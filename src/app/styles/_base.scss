@@ -1,0 +1,30 @@
+html, body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.clickable {
+  cursor: pointer !important;
+}
+
+.fill {
+  flex-grow: 1;
+}
+
+.back-btn {
+  height: 40px !important;
+  font-size: 40px;
+}
+.hero-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-position: center center;
+  justify-self: center;
+  align-self: center;
+}
+.hero-options-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 40px auto;
+}

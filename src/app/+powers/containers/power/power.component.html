@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="actions">
+  <mat-icon fxFlex="15" [routerLink]="['/powers']" class="clickable back-btn">
+    chevron_left
+  </mat-icon>
+  <div class="fill"></div>
+</div>
+<app-power-detail
+  [power]="power | async"
+  [heroes]="heroes | async">
+</app-power-detail>

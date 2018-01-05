@@ -1,0 +1,37 @@
+<mat-card *ngIf="hero">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>
+        {{ hero.character.name }}
+      </h2>
+    </mat-card-title>
+  </mat-card-header>
+  <div mat-card-image [ngStyle]="{'background-image': 'url(' + getHeroImage() + ')'}"></div>
+  <mat-card-content>
+    <h4>Description</h4>
+    <div *ngIf="hero.character.description; else noDescription">
+      <p>{{ hero.character.description }}</p>
+    </div>
+    <ng-template #noDescription>
+      <em>Unknown</em>
+    </ng-template>
+    <h4>Super Powers</h4>
+    <div *ngIf="powers; else noPowers">
+      <app-power-chip-list [powers]="powers" [selectable]="false"></app-power-chip-list>
+    </div>
+    <ng-template #noPowers>
+      <em>Unknown</em>
+    </ng-template>
+    <div class="learn-links">
+      <button app-icon-button *ngIf="hasCharacterUrlByType('detail')">
+        <a [href]="getCharacterUrlByType('detail').url" target="_blank">Details</a>
+      </button>
+      <button app-icon-button *ngIf="hasCharacterUrlByType('wiki')">
+        <a [href]="getCharacterUrlByType('wiki').url" target="_blank">Wiki</a>
+      </button>
+      <button app-icon-button *ngIf="hasCharacterUrlByType('comiclink')">
+        <a [href]="getCharacterUrlByType('comiclink').url" target="_blank">Comic Link</a>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="end center" class="actions">
+  <mat-icon fxFlex="15" [routerLink]="['/heroes', (hero | async)?.id]" class="clickable back-btn">
+    chevron_left
+  </mat-icon>
+  <div class="fill"></div>
+</div>
+<app-edit-hero
+  [hero]="hero | async"
+  [powers]="powers | async"
+  (heroChange)="onHeroChange($event)">
+</app-edit-hero>

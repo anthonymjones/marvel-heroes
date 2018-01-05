@@ -1,0 +1,33 @@
+  <app-dialog-header (close)="close()">
+    <h2>Add Super Hero</h2>
+  </app-dialog-header>
+<form [formGroup]="form" (submit)="onAdd()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput
+             placeholder="Hero Name"
+             formControlName="name"
+             [matAutocomplete]="auto">
+    </mat-form-field>
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayCharacterAutocomplete"
+      (optionSelected)="selectHero($event)">
+      <mat-option *ngFor="let character of characters | async"
+                  [value]="character">
+        <div class="hero-options-wrapper">
+          <div class="hero-avatar" [ngStyle]="{'background-image': 'url(' + getHeroImage(character) + ')'}"></div>
+          <span>{{ character.name }}</span>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+    <h4>Super Hero Powers</h4>
+    <app-power-chip-list
+      [powers]="powers | async"
+      (powerChange)="onPowerChange($event)">
+    </app-power-chip-list>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="submit">Add</button>
+  </mat-dialog-actions>
+</form>

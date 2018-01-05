@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  marvel: {
+    private: '4ba94dfbaeeb654b3cdbb5b88aabeaadf7c202ce',
+    public: 'c42b344e30b0768dcf2911d1b8ee103b',
+  }
 };

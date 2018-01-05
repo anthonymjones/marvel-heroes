@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="start center" class="actions">
+  <mat-icon fxFlex="15" [routerLink]="['/powers']" class="clickable back-btn">
+    chevron_left
+  </mat-icon>
+  <div class="fill"></div>
+</div>
+<app-edit-power
+  [power]="power | async"
+  (powerChange)="onPowerChange($event)">
+</app-edit-power>

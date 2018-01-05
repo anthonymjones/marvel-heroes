@@ -1,0 +1,29 @@
+
+:host {
+  mat-card {
+    [mat-card-image] {
+      height: 400px;
+      background-size: cover;
+      background-position: center center;
+    }
+    .learn-links {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      grid-column-gap: 5px;
+      button {
+        display: flex;
+        justify-content: center;
+        a {
+          text-decoration: none;
+          color: #000000;
+        }
+        &:hover {
+          a {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

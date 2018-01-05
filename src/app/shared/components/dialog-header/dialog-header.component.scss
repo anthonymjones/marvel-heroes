@@ -1,0 +1,17 @@
+:host {
+  .wrapper {
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    margin: -24px -24px 0;
+    padding: 15px 24px;
+
+
+    button {
+      justify-self: flex-end;
+    }
+  }
+}

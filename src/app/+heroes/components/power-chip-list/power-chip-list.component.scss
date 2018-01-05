@@ -1,0 +1,13 @@
+@import "../../../styles/variables";
+
+:host {
+  mat-chip-list {
+    mat-chip {
+      margin: 5px !important;
+      &.selected {
+        color: #fff;
+        background-color: $marvel-red;
+      }
+    }
+  }
+}

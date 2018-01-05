@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="end center" class="actions">
+  <mat-icon fxFlex="15" [routerLink]="['/dashboard']" class="clickable back-btn">
+    chevron_left
+  </mat-icon>
+  <div class="fill"></div>
+  <button app-icon-button (click)="onAdd()">
+    <mat-icon>add_circle_outline</mat-icon>
+    Add Power
+  </button>
+</div>
+<app-powers
+  [powers]="powers | async"
+  (deleteChange)="onDelete($event)"
+  (editChange)="onEdit()">
+</app-powers>

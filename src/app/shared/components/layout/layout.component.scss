@@ -1,0 +1,29 @@
+@import "~@angular/material/theming";
+@import "../../../styles/variables";
+
+:host {
+  mat-toolbar {
+    background-color: $marvel-red;
+    margin-bottom: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    mat-icon {
+      cursor: pointer;
+      padding: 0 15px 0 0;
+    }
+  }
+}
+
+mat-sidenav {
+  mat-list {
+    mat-list-item {
+      button {
+        width: 100px;
+
+        &.active {
+          background: mat-color($mat-grey, 200);
+        }
+      }
+    }
+  }
+}

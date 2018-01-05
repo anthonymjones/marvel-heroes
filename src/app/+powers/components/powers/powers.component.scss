@@ -1,0 +1,20 @@
+@import "~@angular/material/theming";
+
+:host {
+  mat-list {
+    mat-list-item {
+      cursor: pointer;
+      &:hover {
+        background-color: #f7f7f7;
+        transition: all .3s ease;
+        a {
+          transition: all .3s ease;
+          letter-spacing: 1px;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

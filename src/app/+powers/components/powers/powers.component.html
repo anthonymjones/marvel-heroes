@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <h3>Super Powers</h3>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let power of powers" [routerLink]="['/powers', power.id, 'detail']">
+        <div fxFlex>
+          <a>{{ power.name | titlecase }}</a>
+        </div>
+        <div class="actions">
+          <button mat-icon-button [matMenuTriggerFor]="actionsMenu" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #actionsMenu="matMenu">
+            <button mat-menu-item [routerLink]="['/powers', power.id]">edit</button>
+            <button mat-menu-item (click)="deleteChange.emit(power)">delete</button>
+          </mat-menu>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
