@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
-import { switchMap } from 'rxjs/operators';
+import { first, map, switchMap, tap } from 'rxjs/operators';
 
 import { Power } from '../../../core/models/power.model';
-import { PowersService } from '../../../core/services/powers.service';
+import { LoadPower, SelectPower, UpdatePower } from '../../../state/powers/actions/powers';
+import { getSelectedPower, PowersState } from '../../../state/powers/reducers';
 
 @Component({
   templateUrl: './edit.component.html',
@@ -18,26 +20,40 @@ export class EditComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private powersService: PowersService,
+    private store: Store<PowersState>,
     private matSnackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
     this.power = this.activatedRoute.paramMap
       .pipe(
-        switchMap(paramMap => this.powersService.getPower(paramMap.get('id')))
+        tap((paramMap) => this.store.dispatch(new SelectPower({id: Number(paramMap.get('id'))}))),
+        tap((paramMap) => {
+          this.hasPowerInStore()
+            .subscribe(
+              inStore => {
+                if (!inStore) {
+                  this.store.dispatch(new LoadPower({id: parseInt(paramMap.get('id'))}))
+                }
+              }
+            )
+        }),
+        switchMap(() => this.store.select(getSelectedPower),
+        )
+      );
+
+  }
+
+  hasPowerInStore(): Observable<boolean> {
+    return this.store.select(getSelectedPower)
+      .pipe(
+        first(),
+        map(power => !!power)
       );
   }
 
   onPowerChange(power: Power) {
-    this.powersService.editPower(power)
-      .subscribe(() => this.matSnackBar.open(
-        'Power Saved',
-        'Success',
-        {
-          duration: 2000,
-        }
-      ));
+    this.store.dispatch(new UpdatePower(power));
   }
 
 }

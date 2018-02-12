@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs/Observable';
 
 import { Power } from '../../../core/models/power.model';
-import { PowersService } from '../../../core/services/powers.service';
+import { DeletePower, LoadPowers } from '../../../state/powers/actions/powers';
+import { getAllPowers, PowersState } from '../../../state/powers/reducers';
 import { AddPowerComponent } from '../../dialogs/add-power/add-power.component';
 
 @Component({
@@ -15,12 +17,13 @@ export class IndexComponent implements OnInit {
   powers: Observable<Power[]>;
 
   constructor(
-    private powersService: PowersService,
+    private store: Store<PowersState>,
     private matDialog: MatDialog,
   ) { }
 
   ngOnInit() {
-    this.powers = this.powersService.getPowers();
+    this.powers = this.store.select(getAllPowers);
+    this.store.dispatch(new LoadPowers());
   }
 
   onAdd() {
@@ -28,8 +31,7 @@ export class IndexComponent implements OnInit {
   }
 
   onDelete(power: Power) {
-    this.powersService.deletePower(power)
-      .subscribe(() => this.powers = this.powersService.getPowers());
+    this.store.dispatch(new DeletePower(power));
   }
 
 }

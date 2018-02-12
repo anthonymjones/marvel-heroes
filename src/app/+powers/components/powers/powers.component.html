@@ -6,7 +6,7 @@
     <mat-list>
       <mat-list-item *ngFor="let power of powers" [routerLink]="['/powers', power.id, 'detail']">
         <div fxFlex>
-          <a>{{ power.name | titlecase }}</a>
+          <a class="power">{{ power.name | titlecase }}</a>
         </div>
         <div class="actions">
           <button mat-icon-button [matMenuTriggerFor]="actionsMenu" (click)="$event.stopPropagation()">
@@ -14,7 +14,7 @@
           </button>
           <mat-menu #actionsMenu="matMenu">
             <button mat-menu-item [routerLink]="['/powers', power.id]">edit</button>
-            <button mat-menu-item (click)="deleteChange.emit(power)">delete</button>
+            <button mat-menu-item (click)="deleteChange.emit(power)" class="delete-btn">delete</button>
           </mat-menu>
         </div>
       </mat-list-item>

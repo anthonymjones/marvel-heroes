@@ -36,8 +36,8 @@ export class HeroComponent implements OnInit {
     this.powers = this.hero
       .pipe(
         switchMap(hero => forkJoin(
-          hero.powers.map(power => {
-            return this.powersService.getPower(power.toString())
+          hero.powers.map(powerId => {
+            return this.powersService.getPower(powerId)
               .pipe(
                 catchError(error => {
                   console.error(error);

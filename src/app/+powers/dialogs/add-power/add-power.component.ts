@@ -1,9 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
+import { Store } from '@ngrx/store';
 
 import { Power } from "../../../core/models/power.model";
 import { PowersService } from '../../../core/services/powers.service';
+import { AddPower } from '../../../state/powers/actions/powers';
+import { PowersState } from '../../../state/powers/reducers';
 
 @Component({
   templateUrl: './add-power.component.html',
@@ -17,6 +20,7 @@ export class AddPowerComponent implements OnInit {
     private matDialogRef: MatDialogRef<AddPowerComponent>,
     private matSnackBar: MatSnackBar,
     private powersService: PowersService,
+    private store: Store<PowersState>,
   ) { }
 
   ngOnInit() {
@@ -27,17 +31,18 @@ export class AddPowerComponent implements OnInit {
 
   onAdd() {
     const power = <Power>this.form.value;
-    this.powersService.createPower(power)
-      .subscribe(() => {
-        this.matSnackBar.open(
-          'Power Created',
-          'Success',
-          {
-            duration: 2000,
-          },
-        );
-        this.close();
-      });
+    this.store.dispatch(new AddPower(power));
+    // this.powersService.createPower(power)
+    //   .subscribe(() => {
+    //     this.matSnackBar.open(
+    //       'Power Created',
+    //       'Success',
+    //       {
+    //         duration: 2000,
+    //       },
+    //     );
+    //     this.close();
+    //   });
   }
 
   close() {

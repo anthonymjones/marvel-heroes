@@ -93,6 +93,6 @@ export class AddHeroComponent implements OnInit {
 
   getHeroImage(character: Character): string {
     const thumb = character.thumbnail;
-    return `${thumb.path}/standard_large.${thumb.extension}`;
+    return `${thumb.path}/standard_small.${thumb.extension}`;
   }
 }

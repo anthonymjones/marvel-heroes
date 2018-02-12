@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 import { debounceTime } from 'rxjs/operators';
 
@@ -17,7 +18,9 @@ export class EditPowerComponent implements OnInit, OnChanges {
 
   constructor(
     private fb: FormBuilder,
-  ) {}
+  ) {
+    this.createForm();
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.power) {
@@ -26,9 +29,6 @@ export class EditPowerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-    });
     this.form.valueChanges
       .pipe(
         debounceTime(500),
@@ -39,6 +39,12 @@ export class EditPowerComponent implements OnInit, OnChanges {
           ...value
         });
       });
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+    });
   }
 
   populateForm() {

@@ -15,7 +15,7 @@ export class HeroesComponent {
 
   getHeroImage(hero: Hero): string {
     const thumb = hero.character.thumbnail;
-    return `${thumb.path}/standard_large.${thumb.extension}`;
+    return `${thumb.path}/standard_small.${thumb.extension}`;
   }
 
 }
